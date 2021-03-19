@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #chapform {
+      margin-bottom: 12px;
+    }
+  </style>
+</head>
+<body>
+
+<h1>History Alive Fetch (Web Ver.)</h1>
+<p>Tool to grab History Alive, The Medieval World and Beyond! Chapters</p>
+<form id="chapform">
+  <label for="chapnum">Chapter number:</label><br>
+  <input type="text" id="chapnum" name="chapnum"><br>
+  <input type="submit">
+</form>
+<a id="chaptolink" target="_blank" style="display: none;"></a>
+<script>
+function getchap(event) {
+  event.preventDefault();
+  var chapnumint = Number(document.getElementById("chapnum").value),
+  chaptolink = chapnumint + 1,
+  chapurl = 'http://blogs.4j.lane.edu/cylibrary/files/2013/11/HA-Chapter-' + chaptolink + '.pdf',
+  chaplinkelem = document.getElementById('chaptolink');
+  chaplinkelem.setAttribute('href', chapurl);
+  chaplinkelem.innerText = chapurl;
+  chaplinkelem.style.display = 'block';
+}
+
+document.getElementById('chapform').addEventListener('submit', getchap);
+</script>
+</body>
+</html>
